@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Pokemon, Evolution } from '../../models/pokemon.model';
 import { TYPE_COLORS } from '../../shared/type-colors';
-import { FavoritesService } from '../service/favo-service';
+import { FavoritesService } from '../../service/favorites-services';
 
 @Component({
   selector: 'app-pokemon-card',

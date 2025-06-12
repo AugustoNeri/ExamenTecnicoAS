@@ -1,14 +1,16 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { FormsModule } from '@angular/forms'; // Add this import
 
 @Component({
-  selector: 'app-search',
-  imports: [],
+  selector: 'app-search-bar',
+  standalone: true,
+  imports: [FormsModule], // Add this
   templateUrl: './search.html',
-  styleUrl: './search.css'
+  styleUrls: ['./search.css']
 })
 export class SearchBarComponent {
-  searchTerm: string = '';
   @Output() search = new EventEmitter<string>();
+  searchTerm: string = '';
 
   onSearch(): void {
     if (this.searchTerm.trim()) {

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { PokemonService } from '../../services/pokemon';
+import { PokemonService } from '../../service/pokemon';
 import { Pokemon, Evolution } from '../../models/pokemon.model';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  templateUrl: './home.html',
+  styleUrls: ['./home.css']
 })
 export class HomeComponent {
   pokemon: Pokemon | null = null;

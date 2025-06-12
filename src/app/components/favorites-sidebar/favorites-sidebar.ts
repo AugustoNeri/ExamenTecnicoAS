@@ -1,18 +1,22 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FavoritesService } from '../../service/favorites.service';
+import { FavoritesService } from '../../service/favorites-services';
+import { Observable } from 'rxjs';
 import { Pokemon } from '../../models/pokemon.model';
+
 @Component({
   selector: 'app-favorites-sidebar',
-  imports: [],
   templateUrl: './favorites-sidebar.html',
-  styleUrl: './favorites-sidebar.css'
+  styleUrls: ['./favorites-sidebar.css']
 })
 export class FavoritesSidebarComponent {
   @Output() viewFavorites = new EventEmitter<void>();
-  favorites$ = this.favoritesService.favorites$;
+  favorites$: Observable<Pokemon[]>;
 
-  constructor(private favoritesService: FavoritesService) {}
+  constructor(private favoritesService: FavoritesService) {
+    this.favorites$ = this.favoritesService.favorites$;
+  }
 
+  // Añade este método que falta
   removeFavorite(pokemonId: number): void {
     this.favoritesService.removeFavorite(pokemonId);
   }
