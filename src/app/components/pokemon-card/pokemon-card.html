@@ -1,0 +1,48 @@
+<div class="card mb-3" [style.borderColor]="getTypeColor(pokemon.types[0].type.name)">
+  <div class="card-header" [style.backgroundColor]="getTypeColor(pokemon.types[0].type.name)">
+    <h5 class="card-title text-white text-capitalize mb-0">{{ pokemon.name }}</h5>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-4">
+        <img [src]="pokemon.sprites.other?.['official-artwork']?.front_default || pokemon.sprites.front_default" 
+             class="img-fluid" 
+             [alt]="pokemon.name">
+      </div>
+      <div class="col-md-8">
+        <p class="card-text"><strong>ID:</strong> #{{ pokemon.id }}</p>
+        <p class="card-text"><strong>Abilities:</strong></p>
+        <ul>
+          <li *ngFor="let ability of pokemon.abilities" class="text-capitalize">
+            {{ ability.ability.name }}
+          </li>
+        </ul>
+        <p class="card-text"><strong>Types:</strong></p>
+        <div class="d-flex gap-2 mb-3">
+          <span *ngFor="let type of pokemon.types" 
+                class="badge text-capitalize text-white"
+                [style.backgroundColor]="getTypeColor(type.type.name)">
+            {{ type.type.name }}
+          </span>
+        </div>
+        
+        <div *ngIf="showAddButton" class="mt-3">
+          <button class="btn btn-primary" (click)="addToFavorites()">
+            Add to Favorites
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div *ngIf="evolutions.length > 0" class="mt-4">
+      <h6>Evolutions:</h6>
+      <div class="d-flex flex-wrap gap-2">
+        <div *ngFor="let evolution of evolutions" class="evolution-card p-2 rounded"
+             [style.backgroundColor]="getTypeColor(pokemon.types[0].type.name + '22')">
+          <small class="text-capitalize">{{ evolution.name }}</small>
+          <div class="text-muted">#{{ evolution.id }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

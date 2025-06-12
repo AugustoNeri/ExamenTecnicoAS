@@ -1,0 +1,28 @@
+<div class="container mt-4">
+  <h1>Favorite Pokemons</h1>
+  
+  <div class="row mb-3">
+    <div class="col-md-4">
+      <label for="sortSelect" class="form-label">Ordenar por:</label>
+      <select id="sortSelect" class="form-select" [(ngModel)]="sortBy" (change)="sortFavorites()">
+        <option value="name">Nombre (A-Z)</option>
+        <option value="id">Pokemon ID</option>
+        <option value="type">Tipo</option>
+      </select>
+    </div>
+  </div>
+  
+  <div *ngIf="favorites.length === 0" class="alert alert-info">
+    No tienes ningun Pokemon favorito
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6" *ngFor="let pokemon of favorites">
+      <app-pokemon-card [pokemon]="pokemon" [showAddButton]="false">
+        <button class="btn btn-danger mt-2" (click)="removeFavorite(pokemon.id)">
+          Eliminnar desde favoritos
+        </button>
+      </app-pokemon-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="sidebar">
+  <h5>Favorites</h5>
+  <div class="favorites-list">
+    <div *ngFor="let pokemon of favorites$ | async" class="favorite-item mb-2 p-2 rounded">
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="text-capitalize">{{ pokemon.name }}</span>
+        <div>
+          <button class="btn btn-sm btn-outline-danger" (click)="removeFavorite(pokemon.id)">
+            <i class="bi bi-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary mt-3 w-100" (click)="onViewFavorites()">
+    View All Favorites
+  </button>
+</div>
