@@ -2,9 +2,17 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { FavoritesService } from '../../service/favorites-services';
 import { Observable } from 'rxjs';
 import { Pokemon } from '../../models/pokemon.model';
+import { FormsModule } from '@angular/forms';
+import { PokemonCardComponent } from '../pokemon-card/pokemon-card';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-favorites-sidebar',
+  imports: [
+    CommonModule,
+    PokemonCardComponent,
+    FormsModule // Add this to imports array
+  ],
   templateUrl: './favorites-sidebar.html',
   styleUrls: ['./favorites-sidebar.css']
 })

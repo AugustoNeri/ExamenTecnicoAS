@@ -36,7 +36,19 @@ export interface EvolutionChain {
       name: string;
       url: string;
     };
-    evolves_to: EvolutionChain[];
+    evolves_to: {
+      species: {
+        name: string;
+        url: string;
+      };
+      evolves_to: {
+        species: {
+          name: string;
+          url: string;
+        };
+        evolves_to: any[]; // Can be extended further if needed
+      }[];
+    }[];
   };
 }
 

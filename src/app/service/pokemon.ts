@@ -42,19 +42,22 @@ export class PokemonService {
 
   private extractEvolutions(chain: EvolutionChain['chain']): Evolution[] {
     const evolutions: Evolution[] = [];
-    
-    const extract = (currentChain: EvolutionChain['chain']) => {
+
+    const extract = (currentChain: {
+      species: { name: string; url: string };
+      evolves_to: any[]; // Or use a more specific type if needed
+    }) => {
       const id = this.extractIdFromUrl(currentChain.species.url);
       evolutions.push({
         name: currentChain.species.name,
         id: id
       });
-      
+
       currentChain.evolves_to.forEach(nextChain => {
-        return extract(nextChain);
+        extract(nextChain);
       });
     };
-    
+
     extract(chain);
     return evolutions;
   }

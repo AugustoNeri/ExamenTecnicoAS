@@ -1,10 +1,17 @@
 import { Component } from '@angular/core';
 import { PokemonService } from '../../service/pokemon';
 import { Pokemon, Evolution } from '../../models/pokemon.model';
+import { SearchBarComponent } from '../../components/search/search';
+import { CommonModule } from '@angular/common';
+import { PokemonCardComponent } from '../../components/pokemon-card/pokemon-card';
+import { FavoritesSidebarComponent } from '../../components/favorites-sidebar/favorites-sidebar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.html',
+  imports: [CommonModule, SearchBarComponent,PokemonCardComponent,FavoritesSidebarComponent],
+
   styleUrls: ['./home.css']
 })
 export class HomeComponent {
@@ -13,7 +20,7 @@ export class HomeComponent {
   isLoading = false;
   error: string | null = null;
 
-  constructor(private pokemonService: PokemonService) {}
+  constructor(private pokemonService: PokemonService, private router: Router) {}
 
   onSearch(searchTerm: string): void {
     this.isLoading = true;
@@ -32,5 +39,9 @@ export class HomeComponent {
         this.isLoading = false;
       }
     });
+  }
+
+  onViewFavorites(): void {
+    this.router.navigate(['/favorites']);
   }
 }

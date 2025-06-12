@@ -3,10 +3,11 @@ import { FavoritesService } from '../../service/favorites-services';
 import { Pokemon } from '../../models/pokemon.model';
 import { PokemonCardComponent } from '../../components/pokemon-card/pokemon-card';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-favorites',
   templateUrl: './favorites.html',
-  imports: [CommonModule, PokemonCardComponent],
+  imports: [CommonModule, PokemonCardComponent, FormsModule ],
   styleUrls: ['./favorites.css']
 })
 export class FavoritesComponent {
