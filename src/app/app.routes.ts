@@ -12,7 +12,7 @@ export const routes: Routes = [
   { path: 'pokemon', component: Datacomponent },
   
   
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: '/home' }
 ];
 
 @NgModule({
