@@ -10,7 +10,6 @@ import { CommonModule } from '@angular/common';
   selector: 'app-favorites-sidebar',
   imports: [
     CommonModule,
-    PokemonCardComponent,
     FormsModule // Add this to imports array
   ],
   templateUrl: './favorites-sidebar.html',

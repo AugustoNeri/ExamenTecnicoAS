@@ -2,10 +2,11 @@ import { Component, Input } from '@angular/core';
 import { Pokemon, Evolution } from '../../models/pokemon.model';
 import { TYPE_COLORS } from '../../shared/type-colors';
 import { FavoritesService } from '../../service/favorites-services';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-pokemon-card',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './pokemon-card.html',
   styleUrl: './pokemon-card.css'
 })

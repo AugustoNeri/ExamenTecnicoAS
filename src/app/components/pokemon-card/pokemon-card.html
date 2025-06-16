@@ -13,9 +13,9 @@
         <p class="card-text"><strong>ID:</strong> #{{ pokemon.id }}</p>
         <p class="card-text"><strong>Habilidades:</strong></p>
         <ul>
-          <li *ngFor="let ability of pokemon.abilities" class="text-capitalize">
-            {{ ability.ability.name }}
-          </li>
+            @for (ability of pokemon.abilities; track ability) {
+              <li class="text-capitalize">{{ ability.ability.name }}</li>
+            }
         </ul>
         <p class="card-text"><strong>Types:</strong></p>
         <div class="d-flex gap-2 mb-3">

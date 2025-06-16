@@ -35,7 +35,7 @@ export class HomeComponent {
         this.isLoading = false;
       },
       error: (err) => {
-        this.error = 'Pokemon not found. Please try another name or ID.';
+        this.error = 'Pokemon no encontrado, buscado por Nombre o ID.';
         this.isLoading = false;
       }
     });
